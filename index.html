@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Code Converter</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <div class="square square1"></div>
+    <div class="square square2"></div>
+    <div class="square square3"></div>
+    <div class="square square4"></div>
+    <div class="square square5"></div>
+
+    <div class="color-picker">
+        <!-- div to display the color  -->
+        <div id="colorCheck">Check The Color Here</div>
+        <div class="color-info">
+            <!-- Hex Group -->
+            <div class="color-group">
+                <p>HEX</p>
+                <input id="hexValue" type="text">
+                <abbr id="copyHex" title="Copy To Clipboard"><i class="fa-regular fa-copy"></i></abbr>
+            </div>
+            <!-- RGB Group -->
+            <div class="color-group">
+                <p>RGB</p>
+                <input type="text" id="rgbValue">
+                <abbr id="copyRGB" title="Copy To Clipboard"><i class="fa-regular fa-copy"></i></abbr>
+            </div>
+        </div>
+        <!-- Buttons -->
+        <button id="btn">Convert</button>
+        <button id="bg-toggler">View Color In Background</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
