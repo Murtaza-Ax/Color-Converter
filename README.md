@@ -22,7 +22,7 @@
 <a href="https://murtaza-ax.github.io/Color-Converter/">📱 Visit this Project</a>
 </p>
 
-<h2 id="overview">🛒 Overview</h2>
+<h2 id="overview">Overview</h2>
 
 <p align="start">
   
