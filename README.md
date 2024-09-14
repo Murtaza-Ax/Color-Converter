@@ -138,7 +138,7 @@ Here's how to get started:
 
 7. **Create a Pull Request**: Go to the original repository on GitHub and create a pull request. Please provide a detailed explanation of your changes and why they should be merged. 
    
-⭐ Thank you for considering contributing to Trendify!
+⭐ Thank you for considering contributing!
 
 <h3>Documentations that might help</h3>
 
