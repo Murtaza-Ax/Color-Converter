@@ -15,9 +15,10 @@ btn.addEventListener("click", () => {
 
   if (isValidHex(hex)) {
     rgbValue.value = hexToRgb(hex);
-    colorCheck.style.backgroundColor = hex;
+    let newColour = (hex[0] === '#') ? hex : `#${hex}`
+    colorCheck.style.backgroundColor = newColour;
     colorCheck.textContent = "";
-    colorPicker.style.borderColor = hex;
+    colorPicker.style.borderColor = newColour;
   } else if (isValidRgb(rgb)) {
     const rgbArray = rgb.match(/\d+/g).map(Number);
     hexValue.value = rgbToHex(...rgbArray);
@@ -33,13 +34,14 @@ btn.addEventListener("click", () => {
 
 bgToggler.addEventListener("click", () => {
   const hex = hexValue.value.trim();
+  let newColour = (hex[0] === '#') ? hex : `#${hex}`
   if (!isValidHex(hex)) {
     console.log("Invalid hex");
     return;
   }
   let colorInRGB = hexToRgb(hexValue.value);
   if (colorInRGB !== document.body.style.backgroundColor) {
-    document.body.style.backgroundColor = hex;
+    document.body.style.backgroundColor = newColour;
     btn.style.backgroundColor = defaultBgColor;
     bgToggler.style.backgroundColor = defaultBgColor;
     document.querySelector(".color-picker").style.borderColor = defaultBgColor;
@@ -47,13 +49,13 @@ bgToggler.addEventListener("click", () => {
     document.body.style.backgroundColor = defaultBgColor;
     btn.style.backgroundColor = color2;
     bgToggler.style.backgroundColor = color2;
-    document.querySelector(".color-picker").style.borderColor = hex;
+    document.querySelector(".color-picker").style.borderColor = newColour;
   }
 });
 
 // Function to validate the hex value
 function isValidHex(hex) {
-  return /^#([0-9A-F]{3}){1,2}$/i.test(hex);
+  return /^#?([0-9A-F]{3}){1,2}$/i.test(hex);
 }
 
 // Function to validate the rgb value
@@ -69,6 +71,11 @@ function hexToRgb(hex) {
     r = parseInt(hex[1] + hex[1], 16);
     g = parseInt(hex[2] + hex[2], 16);
     b = parseInt(hex[3] + hex[3], 16);
+  } else if (hex.length === 3) {
+    // #RGB format without #
+    r = parseInt(hex[0] + hex[0], 16);
+    g = parseInt(hex[1] + hex[1], 16);
+    b = parseInt(hex[2] + hex[2], 16);
   } else {
     // #RRGGBB format
     r = parseInt(hex.slice(1, 3), 16);
